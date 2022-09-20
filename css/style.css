@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;700&display=swap");
-:root {
-    --main-bg-colour: #EDf5e1;
-    --banner-bg-colour: #5cdb95;
-    --nav-text-colour: #05386B;
-}
+
 * {
     margin: 0;
 }
@@ -19,7 +15,7 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: 'Roboto', sans-serif;
-    background-color: var(--main-bg-colour);
+    background-color: #f5f6f7;
 }
 
 img, picture, video, canvas, svg {
@@ -35,33 +31,17 @@ p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
 
-p, pre {
-    margin: 1em 0;
-}
-
 h1 {
     font-weight: 200;
     font-size: 8em;
-    color: var(--main-bg-colour);
-    line-height: 1;
-    margin-bottom: 2rem !important;
-    position: relative;
 }
 section, footer {
-padding-top: 3rem;
+    padding-top: 120px;
 }
 .container {
-    max-width: 80.0rem;
+    max-width: 62.5rem;
     margin: 0 auto;
-    padding: 0 1.6rem;
-}
-h1 .affix {
-    font-size: 2.5rem;
-    text-align: center;
-    display: block;
-    position: absolute;
-    right: 0;
-    top: -1.6rem;
+    padding: 1.6rem;
 }
 .row-wrap {
     display: flex;
@@ -70,12 +50,10 @@ h1 .affix {
     justify-content: center;
 }
 .main-nav {
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 300;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #DDD;
     padding: 2rem 0;
-    background-color: var(--banner-bg-colour);
-    color: var(--nav-text-colour);
-    text-transform: uppercase;
 }
 .main-nav ul {
     list-style: none;
@@ -84,29 +62,15 @@ h1 .affix {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: normal;
 }
 .main-nav ul >* {
-    margin: 0 0.8em;
+    margin: 0 0.4em;
     padding: 0.5em;
 }
 .main-nav ul a {
     text-decoration: none;
-    color: inherit
 }
-.main-nav ul a.active {
-    color: var(--main-bg-colour);
-    text-decoration: underline solid 0.2em;
-    text-underline-offset: 0.3em;
-}
-.main-nav ul a:hover {
-    text-decoration: underline solid 0.2em;
-    text-underline-offset: 0.3em;
-}
-#banner {
-    background-color: var(--banner-bg-colour);
-}
-#banner .container >* {
+#info .container >* {
     margin: 0 auto;
     text-align: center;
 }
@@ -115,42 +79,6 @@ h1 .affix {
     margin: 0 auto;
     overflow: hidden;
 }
-.main-section {
-    font-size: 1.4rem;
-}
-.main-section h2 {
-    font-size: 3.5rem;
-    font-weight: 300;
-}
-.main-section h3 {
-    margin-top: 3rem; 
-}
-
-.accordian {
-    cursor: pointer;
-}
-.accordian-content {
-    display: none;
-    overflow: hidden;
-    padding: 0 18px;
-}
-.accordian-active {
-    display: block;
-}
-.hidden {
-    display: none;
-}
-.sub-heading {
-    font-weight: bold;
-}
-#bigfive {
-    border-collapse: collapse;
-    border: 1px solid rgba(0,0,0,0.3);
-}
-#bigfive th, #bigfive td {
-    padding: 0.8rem;
-    border: 1px solid rgba(0,0,0,0.3);
-}
-#bigfive th {
-    background-color: 
+.circle {
+    border-radius: 50px;
 }
