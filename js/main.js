@@ -9,6 +9,7 @@ accordianBtns.forEach(btn => {
         event.target.nextElementSibling.classList.toggle('hidden');
         event.target.classList.add('open');
         let top = event.target.offsetTop;
+        console.log(top);
         window.scroll({
             top: top,
             behaviour: 'smooth'
