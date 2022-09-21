@@ -8,13 +8,12 @@ accordianBtns.forEach(btn => {
         hideContent();
         event.target.nextElementSibling.classList.toggle('hidden');
         event.target.classList.add('open');
-        event.target.scrollIntoView(true);
-        //let top = event.target.offsetTop;
-        //console.log(top);
-        //window.scroll({
-            //top: top,
-            //behaviour: 'smooth'
-        //});
+        let top = event.target.offsetTop;
+        window.scroll({
+            top: top,
+            behaviour: 'smooth'
+        });
+        
         navBtns.forEach(navBtn => {
             if (`#${event.target.getAttribute('data-nav')}` === navBtn.getAttribute('href')) {
                 navBtn.classList.add('active');
