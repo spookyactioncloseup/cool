@@ -2,66 +2,47 @@ const accordianBtns = document.querySelectorAll('.accordian');
 const navBtns = document.querySelectorAll('.main-nav a');
 const contents = document.querySelectorAll('.content');
 
-
-accordianBtns.forEach(btn => {
-    btn.addEventListener('click', event => {
-        hideContent();
-        event.target.nextElementSibling.classList.toggle('hidden');
-        event.target.classList.add('open');
-        let top = event.target.offsetTop;
-        window.scroll({
-            top: top,
-            behaviour: 'smooth'
-        });
-        
-        navBtns.forEach(navBtn => {
-            if (`#${event.target.getAttribute('data-nav')}` === navBtn.getAttribute('href')) {
-                navBtn.classList.add('active');
-            }
-        });
-    });
-});
-
 navBtns.forEach(navBtn => {
-    navBtn.addEventListener('click', event => {
-        removeActive();
-        const accordianElem = document.querySelector(`${event.target.getAttribute('href')} .content`);
-        hideContent();
-        accordianElem.classList.remove('hidden');
-        accordianElem.previousElementSibling.classList.add('open');
-        event.target.classList.add('active');
+    navBtn.addEventListener('click', ev => {
+        ev.preventDefault();
+        let targetElem = ev.target.getAttribute('href');      
+        let accordian = document.querySelector(targetElem);
+        toggle(ev.target, accordian);
     });
 });
 
-function removeActive(){
+accordianBtns.forEach(accordianBtn => {
+    accordianBtn.addEventListener('click', ev => {
+        let targetElem = ev.target.getAttribute('id');
+        let navBtn = document.querySelector(`a[href='#${targetElem}'`);
+        toggle(navBtn, ev.target);
+    });
+});
+
+function toggle(btn, accordian) {
     navBtns.forEach(navBtn => {
         if (navBtn.classList.contains('active')) {
             navBtn.classList.remove('active');
         }
     });
-    
+
+    btn.classList.add('active');
+
+    accordianBtns.forEach(accordianBtn => {
+        if (accordianBtn.classList.contains('open')) {
+            accordianBtn.classList.remove('open');
+            accordianBtn.nextElementSibling.classList.add('hidden');
+        }
+    });
+
+    accordian.classList.add('open');
+    accordian.nextElementSibling.classList.remove('hidden');
+
+    setTimeout(() => {
+        let top = accordian.offsetTop;
+        window.scroll({
+            top: top,
+            behaviour: 'smooth'
+        });
+    },300);
 }
-function hideContent() {
-    accordianBtns.forEach(btn => {
-        if (btn.classList.contains('open')) {
-            btn.classList.remove('open');
-        }
-    });
-
-    navBtns.forEach(btn => {
-        if (btn.classList.contains('active')) {
-            btn.classList.remove('active');
-        }
-    });
-
-    contents.forEach(content => {
-        if (!content.classList.contains('hidden')) {
-            content.classList.add('hidden');
-        }
-    });
-}
-
-
-
-
-
