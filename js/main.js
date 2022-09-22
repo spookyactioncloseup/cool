@@ -1,6 +1,5 @@
 const accordianBtns = document.querySelectorAll('.accordian');
 const navBtns = document.querySelectorAll('.main-nav a');
-const contents = document.querySelectorAll('.content');
 
 navBtns.forEach(navBtn => {
     navBtn.addEventListener('click', ev => {
@@ -44,5 +43,5 @@ function toggle(btn, accordian) {
             top: top,
             behaviour: 'smooth'
         });
-    },300);
+    },100);
 }
